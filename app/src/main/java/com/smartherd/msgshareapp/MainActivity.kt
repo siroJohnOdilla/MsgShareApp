@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent.createChooser(intent,"Please select App : "))
         }
-
-
+        val btnRecyclerViewDemo = findViewById<Button>(R.id.btnRecyclerViewDemo)
+        val intent = Intent(this,HobbiesActivity::class.java)
+        startActivity(intent)
     }
 }
