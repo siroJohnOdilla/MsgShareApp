@@ -28,7 +28,17 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("user_message", message)
             startActivity(intent)
         }
+        val btnShareToOtherApps = findViewById<Button>(R.id.btnShareToOtherApps)
+        btnShareToOtherApps.setOnClickListener {
+            val etUserMessage = findViewById<EditText>(R.id.etUserMessage)
+            val message: String = etUserMessage.text.toString()
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, message)
+            intent.type = "text/plain"
 
+            startActivity(Intent.createChooser(intent,"Please select App : "))
+        }
 
 
     }
